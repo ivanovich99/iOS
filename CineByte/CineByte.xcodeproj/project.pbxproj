@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		94F754012D6A9B05009B55D3 /* EditMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F754002D6A9AFD009B55D3 /* EditMovieView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		2DCBD0342D66E7D9006F022C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		2DCBD0232D66E7D8006F022C /* CineByte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CineByte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCBD0332D66E7D9006F022C /* CineByteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineByteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCBD03D2D66E7D9006F022C /* CineByteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineByteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94F754002D6A9AFD009B55D3 /* EditMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMovieView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		2DCBD01A2D66E7D8006F022C = {
 			isa = PBXGroup;
 			children = (
+				94F754002D6A9AFD009B55D3 /* EditMovieView.swift */,
 				2DCBD0252D66E7D8006F022C /* CineByte */,
 				2DCBD0362D66E7D9006F022C /* CineByteTests */,
 				2DCBD0402D66E7D9006F022C /* CineByteUITests */,
@@ -236,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94F754012D6A9B05009B55D3 /* EditMovieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,9 +403,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineByte/Preview Content\"";
-				DEVELOPMENT_TEAM = 2445X4H5UG;
+				DEVELOPMENT_TEAM = W54TM83565;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Permiso de biblioteca";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Permiso de cámara";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -425,9 +434,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineByte/Preview Content\"";
-				DEVELOPMENT_TEAM = 2445X4H5UG;
+				DEVELOPMENT_TEAM = W54TM83565;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Permiso de biblioteca";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Permiso de cámara";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
