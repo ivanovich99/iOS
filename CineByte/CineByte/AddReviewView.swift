@@ -142,31 +142,66 @@ struct AddReviewView: View {
     }
     
     private func guardarReseña() {
-            guard let user = authManager.currentUser else { return }
-            
-            let poster: String = (selectedImage != nil)
-                ? "custom_\(formatMovieTitle(movieName))"
-                : formatMovieTitle(movieName)
-            
-            let newMovie = Movie(
-                userId: user.id,
-                name: movieName,
-                poster: poster,
-                rating: rating,
-                review: reviews,
-                location: location
-            )
-            movieManager.addMovie(newMovie, customImage: selectedImage)
-            
-            movieName = ""
-            rating = 3.0
-            location = locationOptions.first ?? "Cinemex"
-            reviews = []
-            currentReview = ""
-            selectedImage = nil
-            
-            showAlert = true
+        guard !movieName.isEmpty else {
+            mostrarAlertaError(mensaje: "Debe ingresar el nombre de la película.")
+            return
         }
+        
+        guard rating > 0 else {
+            mostrarAlertaError(mensaje: "Debe seleccionar una calificación válida.")
+            return
+        }
+        
+        guard !location.isEmpty else {
+            mostrarAlertaError(mensaje: "Debe seleccionar una ubicación.")
+            return
+        }
+        
+        guard selectedImage != nil else {
+            mostrarAlertaError(mensaje: "Debe seleccionar un póster para la película.")
+            return
+        }
+        
+        guard !reviews.isEmpty else {
+            mostrarAlertaError(mensaje: "Debe agregar al menos una reseña.")
+            return
+        }
+        
+        guard let user = authManager.currentUser else { return }
+        
+        let poster: String = "custom_\(formatMovieTitle(movieName))"
+
+        let newMovie = Movie(
+            userId: user.id,
+            name: movieName,
+            poster: poster,
+            rating: rating,
+            review: reviews,
+            location: location
+        )
+        
+        movieManager.addMovie(newMovie, customImage: selectedImage)
+        
+        movieName = ""
+        rating = 3.0
+        location = locationOptions.first ?? "Cinemex"
+        reviews = []
+        currentReview = ""
+        selectedImage = nil
+        
+        showAlert = true
+    }
+
+    private func mostrarAlertaError(mensaje: String) {
+        let alert = UIAlertController(title: "Error", message: mensaje, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let rootViewController = windowScene.windows.first?.rootViewController {
+            rootViewController.present(alert, animated: true, completion: nil)
+        }
+    }
+
     
     private func formatMovieTitle(_ title: String) -> String {
         return title.lowercased().replacingOccurrences(of: " ", with: "-")
